@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Product Id="*" Name="SetupProject1MvcApplication1.Installer" Language="1033" Version="1.0.0.0" Manufacturer="Me" UpgradeCode="6ed15fb6-00a7-4caf-a503-fd8a9a0417c1">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<MediaTemplate />
+
+		<Feature Id="ProductFeature" Title="SetupProject1MvcApplication1.Installer" Level="1">
+      <ComponentGroupRef Id="MvcApplication1_Project" />
+      <ComponentGroupRef Id="WebComponents" />
+		</Feature>
+
+    <Property Id="BaseDir">C:\temp\wix-installs\</Property>
+	</Product>
+
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="BaseDir">
+				<Directory Id="INSTALLFOLDER" Name="SetupProject1MvcApplication1.Installer" />
+			</Directory>
+		</Directory>
+	</Fragment>
+
+	<Fragment>
+		<ComponentGroup Id="WebComponents" Directory="INSTALLFOLDER">
+      
+		</ComponentGroup>
+	</Fragment>
+</Wix>
